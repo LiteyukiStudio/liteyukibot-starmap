@@ -53,6 +53,7 @@
             border: 1px solid rgb(100, 100, 100);
             transition: all 0.3s ease;
             overflow: hidden;
+            visibility: hidden;
         }
 
         .box-expanded {
@@ -200,7 +201,7 @@
             'diamond': {
                 'symbol': 'diamond',
                 'symbolSize': {
-                    'max': 13,
+                    'max': 10,
                     'min': 5
                 }
             },
@@ -215,8 +216,8 @@
         };
     </script>
     <script>
-        var chart = echarts.init(document.getElementById('echartsMap'));
-
+        const chart = echarts.init(document.getElementById('echartsMap'));
+        const box = document.getElementById('myBox');
         function setAllRegionsUnselectable(geoModel) {
             var regions = geoModel.get('regions');
             for (var i = 0; i < regions.length; i++) {
@@ -312,12 +313,12 @@
                     var geoModel = chart.getModel().componentModels.geo[0];
                     setAllRegionsUnselectable(geoModel);
                 });
+                box.style.visibility = "visible";
                 updateSizes();
             })
             .catch(error => console.error('Error fetching data:', error));
     </script>
     <script>
-        const box = document.getElementById('myBox');
         const radioButtons = box.querySelector('.radio-buttons');
         const box_label = box.querySelector('.box-label');
         const radioInputs = radioButtons.querySelectorAll('input[type="radio"]');
