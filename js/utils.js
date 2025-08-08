@@ -70,7 +70,7 @@ let options = {
 }
 chart.setOption(options);
 
-fetch('https://api.liteyuki.icu/distribution')
+fetch('https://api.liteyuki.org/distribution')
     .then(response => response.json())
     .then(data => {
         const locations = data.locations;
