@@ -28,7 +28,7 @@ jobs:
       - name: "发布"
         run: |
           npx -p "@getmeli/cli" meli upload . \
-            --url "https://pages.liteyuki.icu" \
+            --url "https://dash.apage.dev" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
             --release "$GITHUB_SHA"
